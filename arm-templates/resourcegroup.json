@@ -8,7 +8,7 @@
                 "description": "Enter the location to deploy the resource to"
             },
             "defaultValue": "EastUS"
-        }
+        },
         "resourceGroupName": {
             "type": "string",
             "metadata": {

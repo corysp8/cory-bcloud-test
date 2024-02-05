@@ -4,11 +4,12 @@ on:
   push:
     branches:
       - main
-   workflow_dispatch:
+  workflow_dispatch:
 
 jobs:
   armDeploy:
     runs-on: ubuntu-latest
+    
     steps:
       - uses: actions/checkout@v3
 
@@ -17,10 +18,10 @@ jobs:
         with:
           creds: ${{ secrets.AzureCredentials }}
 
-          - name: Deploy Resource Group rg-githubaction with AZ CLI
-            uses: Azure/cli@v1.0.9
-            with: 
-              inlinescript: |
-                az deployment sub create --location "EastUS" --template-file ./arm-templates/resourcegroup.json
+      - name: Deploy Resource Group rg-githubaction with AZ CLI
+        uses: Azure/cli@v1.0.9
+        with: 
+          inlinescript: |
+            az deployment sub create --location "EastUS" --template-file ./arm-templates/resourcegroup.json
       
 
